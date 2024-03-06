@@ -395,14 +395,6 @@ rules:
         to: [ { shell_command: open -a Figma } ]
 
       #==========================================================#
-      # ( command + g ) --> Neat                                 #
-      #==========================================================#
-      - description: 'command + g = Neat'
-        type: basic
-        from: { key_code: g, modifiers: { mandatory: [left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: open -a Neat } ]
-
-      #==========================================================#
       # ( command + c ) --> Arc                                  #
       #==========================================================#
       - description: 'command + c = Arc'
@@ -418,6 +410,13 @@ rules:
         from: { key_code: v, modifiers: { mandatory: [left_command, right_command,right_control,right_shift,right_option ] } }
         to: [ { shell_command: open -a 'Visual Studio Code' } ]
 
+      #==========================================================#
+      # ( command + z ) --> Zed                                  #
+      #==========================================================#
+      - description: 'command + z = Zed'
+        type: basic
+        from: { key_code: z, modifiers: { mandatory: [left_command, right_command,right_control,right_shift,right_option ] } }
+        to: [ { shell_command: open -a Zed } ]
 
 
   ################################################################
