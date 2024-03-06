@@ -1077,10 +1077,10 @@
       "description": "Hyper Application",
       "manipulators": [
         {
-          "description": "command + e = Linear",
+          "description": "command + r = Linear",
           "type": "basic",
           "from": {
-            "key_code": "e",
+            "key_code": "r",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1098,10 +1098,10 @@
           ]
         },
         {
-          "description": "command + r = Finder",
+          "description": "command + d = Finder",
           "type": "basic",
           "from": {
-            "key_code": "r",
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1245,10 +1245,10 @@
           ]
         },
         {
-          "description": "command + z = Zed",
+          "description": "command + e = Zed",
           "type": "basic",
           "from": {
-            "key_code": "z",
+            "key_code": "e",
             "modifiers": {
               "mandatory": [
                 "left_command",
