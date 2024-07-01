@@ -123,6 +123,29 @@
       "description": "Hyper Navigation",
       "manipulators": [
         {
+          "description": "t = ctrl + tab",
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
           "description": "command + h = shift + left",
           "type": "basic",
           "from": {
@@ -886,10 +909,10 @@
       "description": "Hyper Application",
       "manipulators": [
         {
-          "description": "command + e = Linear",
+          "description": "command + r = Linear",
           "type": "basic",
           "from": {
-            "key_code": "e",
+            "key_code": "r",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -907,10 +930,10 @@
           ]
         },
         {
-          "description": "command + g = Finder",
+          "description": "command + w = Finder",
           "type": "basic",
           "from": {
-            "key_code": "g",
+            "key_code": "w",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -928,10 +951,10 @@
           ]
         },
         {
-          "description": "command + r = iTerm",
+          "description": "command + e = iTerm",
           "type": "basic",
           "from": {
-            "key_code": "r",
+            "key_code": "e",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1033,10 +1056,10 @@
           ]
         },
         {
-          "description": "command + t = Spotify",
+          "description": "command + q = Spotify",
           "type": "basic",
           "from": {
-            "key_code": "t",
+            "key_code": "q",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1054,10 +1077,10 @@
           ]
         },
         {
-          "description": "command + w = TypingMind",
+          "description": "command + x = TypingMind",
           "type": "basic",
           "from": {
-            "key_code": "w",
+            "key_code": "x",
             "modifiers": {
               "mandatory": [
                 "left_command",
