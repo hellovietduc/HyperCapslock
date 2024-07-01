@@ -123,10 +123,10 @@
       "description": "Hyper Navigation",
       "manipulators": [
         {
-          "description": "t = ctrl + tab",
+          "description": "g = ctrl + tab",
           "type": "basic",
           "from": {
-            "key_code": "t",
+            "key_code": "g",
             "modifiers": {
               "mandatory": [
                 "right_command",
