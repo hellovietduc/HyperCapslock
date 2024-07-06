@@ -21,7 +21,10 @@ const createHyperKey = (from: FromKeyParam) => {
 
 const HyperCapslock = () => {
   return rule("Hyper CapsLock").manipulators([
+    // CapsLock is Hyper
     createHyperKey("caps_lock").toIfAlone("escape", undefined, { lazy: true }),
+
+    // CapsLock + Escape to enable CapsLock
     map("escape", HYPER_KEY, "caps_lock").to("caps_lock", "left_control"),
   ]);
 };
