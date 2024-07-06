@@ -1,0 +1,14 @@
+{
+  "name": "hyper-capslock",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "Apache-2.0",
+  "scripts": {
+    "hyper": "ts-node ./src/index.ts"
+  },
+  "devDependencies": {
+    "karabiner.ts": "^1.29.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}

@@ -1,0 +1,179 @@
+[
+  [
+    {
+      "a": 7
+    },
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    {
+      "w": 2
+    },
+    ""
+  ],
+  [
+    {
+      "w": 1.5
+    },
+    "",
+    {
+      "c": "#da97de",
+      "a": 0
+    },
+    "Spotify\n\n\n\n\nQ",
+    "Finder\n\n\n\n\nW",
+    "iTerm\n\n\n\n\nE",
+    "Linear\n\n\n\n\nR",
+    {
+      "c": "#cccccc",
+      "a": 7
+    },
+    "",
+    "",
+    {
+      "c": "#a490de",
+      "a": 0
+    },
+    "Select\n←\n\n\n\nU\nLine",
+    "Select\n←\n\n\n\nI\nWord",
+    "Select\n→\n\n\n\nO\nWord",
+    "Select\n→\n\n\n\nP\nLine",
+    {
+      "c": "#cccccc",
+      "a": 7
+    },
+    "",
+    "",
+    {
+      "w": 1.5
+    },
+    ""
+  ],
+  [
+    {
+      "c": "#b3ed6f",
+      "a": 4,
+      "w": 1.75
+    },
+    "Hyper",
+    {
+      "c": "#da97de",
+      "a": 0
+    },
+    "Teams\n\n\n\n\nA",
+    "Logseq\n\n\n\n\nS",
+    "Dash\n\n\n\n\nD",
+    "Figma\n\n\n\n\nF",
+    {
+      "c": "#cccccc",
+      "a": 7
+    },
+    "",
+    {
+      "c": "#a490de",
+      "a": 0
+    },
+    "Select\n←\n\n\n\nH\nChar",
+    "Select\n↓\n\n\n\nJ\nChar",
+    "Select\n↑\n\n\n\nK\nChar",
+    "Select\n→\n\n\n\nL\nChar",
+    {
+      "c": "#cccccc",
+      "a": 7
+    },
+    "",
+    "",
+    {
+      "a": 4,
+      "w": 2.25
+    },
+    "Enter"
+  ],
+  [
+    {
+      "w": 2.25
+    },
+    "Shift",
+    {
+      "a": 7
+    },
+    "",
+    {
+      "c": "#da97de",
+      "a": 0
+    },
+    "Typing\n\n\n\n\nX\nMind",
+    "Arc\n\n\n\n\nC",
+    "VS\n\n\n\n\nV\nCode",
+    {
+      "c": "#cccccc",
+      "a": 7
+    },
+    "",
+    {
+      "c": "#ed8585",
+      "a": 0
+    },
+    "Del\n\n\n\n\nN\nLine",
+    {
+      "c": "#cccccc",
+      "a": 7
+    },
+    "",
+    "",
+    "",
+    "",
+    {
+      "w": 2.75
+    },
+    ""
+  ],
+  [
+    {
+      "a": 4,
+      "w": 1.25
+    },
+    "Ctrl",
+    {
+      "w": 1.25
+    },
+    "⌥",
+    {
+      "c": "#2f7da1",
+      "w": 1.25
+    },
+    "⌘",
+    {
+      "c": "#cccccc",
+      "a": 7,
+      "w": 6.25
+    },
+    "",
+    {
+      "w": 1.25
+    },
+    "",
+    {
+      "w": 1.25
+    },
+    "",
+    {
+      "w": 1.25
+    },
+    "",
+    {
+      "w": 1.25
+    },
+    ""
+  ]
+]
