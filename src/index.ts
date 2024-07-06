@@ -22,6 +22,7 @@ const createHyperKey = (from: FromKeyParam) => {
 const HyperCapslock = () => {
   return rule("Hyper CapsLock").manipulators([
     createHyperKey("caps_lock").toIfAlone("escape", undefined, { lazy: true }),
+    map("escape", HYPER_KEY, "caps_lock").to("caps_lock", "left_control"),
   ]);
 };
 
@@ -138,16 +139,16 @@ const HyperAppDash = () => {
 const HyperFn = () => {
   return rule("Hyper Fn", unlessVoyager).manipulators([
     withModifier(HYPER_KEY)([
-      map("f1").to("display_brightness_decrement"),
-      map("f2").to("display_brightness_increment"),
+      map("1").to("display_brightness_decrement"),
+      map("2").to("display_brightness_increment"),
 
-      map("f7").to("rewind"),
-      map("f8").to("play_or_pause"),
-      map("f9").to("fastforward"),
+      map("7").to("rewind"),
+      map("8").to("play_or_pause"),
+      map("9").to("fastforward"),
 
-      map("f10").to("mute"),
-      map("f11").to("volume_decrement"),
-      map("f12").to("volume_increment"),
+      map("0").to("mute"),
+      map("-").to("volume_decrement"),
+      map("=").to("volume_increment"),
 
       map("spacebar").to("z", "left_option"), // change input language
     ]),
