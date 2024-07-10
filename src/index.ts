@@ -126,6 +126,34 @@ const HyperAppsForVoyager = () => {
       map("x").toApp("TypingMind"),
       map("c").toApp("Arc"),
       map("v").toApp("Visual Studio Code"),
+
+      // --- Yabai settings ---
+      // Change focus within space
+      map("h").to$("/opt/homebrew/bin/yabai -m window --focus west"),
+      map("j").to$("/opt/homebrew/bin/yabai -m window --focus south"),
+      map("k").to$("/opt/homebrew/bin/yabai -m window --focus north"),
+      map("l").to$("/opt/homebrew/bin/yabai -m window --focus east"),
+
+      // Move window within space
+      map("y").to$("/opt/homebrew/bin/yabai -m window --warp west"),
+      map("u").to$("/opt/homebrew/bin/yabai -m window --warp south"),
+      map("i").to$("/opt/homebrew/bin/yabai -m window --warp north"),
+      map("o").to$("/opt/homebrew/bin/yabai -m window --warp east"),
+
+      // Maximize a window
+      map("return_or_enter").to$("/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen"),
+
+      // Toggle float
+      map("delete_or_backspace").to$("/opt/homebrew/bin/yabai -m window --toggle float --grid 1:3:1:0:1:1"),
+
+      // Balance out tree of windows (resize to occupy same area)
+      map("b").to$("/opt/homebrew/bin/yabai -m space --balance"),
+
+      // Rotate layout clockwise
+      map("n").to$("/opt/homebrew/bin/yabai -m space --rotate 270"),
+
+      // Restart Yabai
+      map("7").to$("/opt/homebrew/bin/yabai --restart-service"),
     ]),
   ]);
 };
