@@ -126,34 +126,59 @@ const HyperAppsForVoyager = () => {
       map("x").toApp("TypingMind"),
       map("c").toApp("Arc"),
       map("v").toApp("Visual Studio Code"),
+    ]),
+  ]);
+};
 
-      // --- Yabai settings ---
-      // Change focus within space
-      map("h").to$("/opt/homebrew/bin/yabai -m window --focus west"),
-      map("j").to$("/opt/homebrew/bin/yabai -m window --focus south"),
-      map("k").to$("/opt/homebrew/bin/yabai -m window --focus north"),
-      map("l").to$("/opt/homebrew/bin/yabai -m window --focus east"),
+const HyperYabai = () => {
+  const yabai = "/opt/homebrew/bin/yabai";
+  return rule("Hyper Yabai", isVoyager).manipulators([
+    withModifier(["right_control", "right_option"])([
+      // Focus window
+      map("h").to$(`${yabai} -m window --focus west`),
+      map("j").to$(`${yabai} -m window --focus south`),
+      map("k").to$(`${yabai} -m window --focus north`),
+      map("l").to$(`${yabai} -m window --focus east`),
 
-      // Move window within space
-      map("y").to$("/opt/homebrew/bin/yabai -m window --warp west"),
-      map("u").to$("/opt/homebrew/bin/yabai -m window --warp south"),
-      map("i").to$("/opt/homebrew/bin/yabai -m window --warp north"),
-      map("o").to$("/opt/homebrew/bin/yabai -m window --warp east"),
+      // Focus space
+      // Handled by Mission Control
+      // map("left_arrow").to$(`${yabai} -m space --focus prev`),
+      // map("right_arrow").to$(`${yabai} -m space --focus next`),
+
+      // Focus desktop
+      map("c").to$(`${yabai} -m display --focus prev`),
+      map("n").to$(`${yabai} -m display --focus next`),
 
       // Maximize a window
-      map("return_or_enter").to$("/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen"),
+      map("return_or_enter").to$(`${yabai} -m window --toggle zoom-fullscreen`),
 
       // Toggle float
-      map("delete_or_backspace").to$("/opt/homebrew/bin/yabai -m window --toggle float --grid 1:3:1:0:1:1"),
+      map("delete_or_backspace").to$(`${yabai} -m window --toggle float --grid 1:3:1:0:1:1`),
 
       // Balance out tree of windows (resize to occupy same area)
-      map("b").to$("/opt/homebrew/bin/yabai -m space --balance"),
+      map("b").to$(`${yabai} -m space --balance`),
 
-      // Rotate layout clockwise
-      map("n").to$("/opt/homebrew/bin/yabai -m space --rotate 270"),
+      // Rotate windows
+      map("y").to$(`${yabai} -m window --toggle split && ${yabai} -m space --balance`),
 
-      // Restart Yabai
-      map("7").to$("/opt/homebrew/bin/yabai --restart-service"),
+      // Restart yabai
+      map("6").to$(`${yabai} --restart-service`),
+    ]),
+
+    withModifier(["right_control", "right_option", "right_shift"])([
+      // Move window within space
+      map("e").to$(`${yabai} -m window --warp north`),
+      map("d").to$(`${yabai} -m window --warp south`),
+      map("s").to$(`${yabai} -m window --warp west`),
+      map("f").to$(`${yabai} -m window --warp east`),
+
+      // Move window to other spaces
+      map("left_arrow").to$(`${yabai} -m window --space prev --focus`),
+      map("right_arrow").to$(`${yabai} -m window --space next --focus`),
+
+      // Move window to other desktops
+      map("w").to$(`${yabai} -m window --display prev --focus`),
+      map("r").to$(`${yabai} -m window --display next --focus`),
     ]),
   ]);
 };
@@ -204,6 +229,7 @@ writeToProfile("Default", [
   HyperSymbols(),
   HyperApps(),
   HyperAppsForVoyager(),
+  HyperYabai(),
   HyperAppDash(),
   HyperFn(),
   HyperMisc(),
