@@ -16,7 +16,8 @@ const isDash = ifApp("^com\\.kapeli\\.dash-setapp$");
 const HYPER_KEY: FromModifierParam = ["right_shift", "right_command", "right_option", "right_control"];
 
 const createHyperKey = (from: FromKeyParam) => {
-  return map(from).to("right_shift", ["right_command", "right_option", "right_control"]);
+  // Any modifier combined with the Hyper key won't trigger the Hyper key's original action
+  return map(from, null, "any").to("right_shift", ["right_command", "right_option", "right_control"]);
 };
 
 const HyperCapslock = () => {
@@ -47,26 +48,30 @@ const HyperNavigation = () => {
 
 const HyperSelection = () => {
   return rule("Hyper Selection", unlessVoyager).manipulators([
-    withModifier(HYPER_KEY)([
-      map("h", "left_command").to("left_arrow", "left_shift"),
-      map("j", "left_command").to("down_arrow", "left_shift"),
-      map("k", "left_command").to("up_arrow", "left_shift"),
-      map("l", "left_command").to("right_arrow", "left_shift"),
+    withModifier(["left_command", ...HYPER_KEY])([
+      map("h").to("left_arrow", "left_shift"),
+      map("j").to("down_arrow", "left_shift"),
+      map("k").to("up_arrow", "left_shift"),
+      map("l").to("right_arrow", "left_shift"),
 
-      map("u", "left_command").to("left_arrow", ["left_command", "left_shift"]),
-      map("i", "left_command").to("left_arrow", ["left_option", "left_shift"]),
-      map("o", "left_command").to("right_arrow", ["left_option", "left_shift"]),
-      map("p", "left_command").to("right_arrow", ["left_command", "left_shift"]),
+      map("u").to("left_arrow", ["left_command", "left_shift"]),
+      map("i").to("left_arrow", ["left_option", "left_shift"]),
+      map("o").to("right_arrow", ["left_option", "left_shift"]),
+      map("p").to("right_arrow", ["left_command", "left_shift"]),
     ]),
   ]);
 };
 
 const HyperDeletion = () => {
   return rule("Hyper Deletion", unlessVoyager).manipulators([
+    withModifier(["left_command", ...HYPER_KEY])([
+      map("n").to("delete_or_backspace", "left_command"),
+      //
+    ]),
     withModifier(HYPER_KEY)([
-      map("n", "left_command").to("delete_or_backspace", "left_command"),
       map("n").to("delete_or_backspace", "left_option"),
       map("m").to("delete_or_backspace"),
+      //
     ]),
   ]);
 };
@@ -93,20 +98,20 @@ const HyperSymbols = () => {
 
 const HyperApps = () => {
   return rule("Hyper Apps", unlessVoyager).manipulators([
-    withModifier(HYPER_KEY)([
-      map("q", "left_command").toApp("Spotify"),
-      map("w", "left_command").toApp("Finder"),
-      map("e", "left_command").toApp("iTerm"),
-      map("r", "left_command").toApp("Linear"),
+    withModifier(["left_command", ...HYPER_KEY])([
+      map("q").toApp("Spotify"),
+      map("w").toApp("Finder"),
+      map("e").toApp("iTerm"),
+      map("r").toApp("Linear"),
 
-      map("a", "left_command").toApp("Microsoft Teams (work or school)"),
-      map("s", "left_command").toApp("Logseq"),
-      map("d", "left_command").toApp("Dash"),
-      map("f", "left_command").toApp("Figma"),
+      map("a").toApp("Microsoft Teams (work or school)"),
+      map("s").toApp("Logseq"),
+      map("d").toApp("Dash"),
+      map("f").toApp("Figma"),
 
-      map("x", "left_command").toApp("TypingMind"),
-      map("c", "left_command").toApp("Arc"),
-      map("v", "left_command").toApp("Visual Studio Code"),
+      map("x").toApp("TypingMind"),
+      map("c").toApp("Arc"),
+      map("v").toApp("Visual Studio Code"),
     ]),
   ]);
 };
