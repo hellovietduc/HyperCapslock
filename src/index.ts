@@ -158,7 +158,7 @@ const HyperYabai = () => {
       // Balance out tree of windows (resize to occupy same area)
       map("b").to$(`${yabai} -m space --balance`),
 
-      // Rotate windows
+      // Toggle split and rebalance
       map("y").to$(`${yabai} -m window --toggle split && ${yabai} -m space --balance`),
 
       // Restart yabai
@@ -167,10 +167,10 @@ const HyperYabai = () => {
 
     withModifier(["right_control", "right_option", "right_shift"])([
       // Move window within space
-      map("e").to$(`${yabai} -m window --warp north`),
-      map("d").to$(`${yabai} -m window --warp south`),
-      map("s").to$(`${yabai} -m window --warp west`),
-      map("f").to$(`${yabai} -m window --warp east`),
+      map("e").to$(`${yabai} -m window --swap north`),
+      map("d").to$(`${yabai} -m window --swap south`),
+      map("s").to$(`${yabai} -m window --swap west`),
+      map("f").to$(`${yabai} -m window --swap east`),
 
       // Move window to other spaces
       map("left_arrow").to$(`${yabai} -m window --space prev --focus`),
