@@ -103,6 +103,7 @@ const HyperApps = () => {
       map("w").toApp("Finder"),
       map("e").toApp("iTerm"),
       map("r").toApp("Linear"),
+      map("t").toApp("Front"),
 
       map("a").toApp("Microsoft Teams (work or school)"),
       map("s").toApp("Logseq"),
@@ -123,6 +124,7 @@ const HyperAppsForVoyager = () => {
       map("w").toApp("Finder"),
       map("e").toApp("iTerm"),
       map("r").toApp("Linear"),
+      map("t").toApp("Front"),
 
       map("a").toApp("Microsoft Teams (work or school)"),
       map("s").toApp("Logseq"),
@@ -135,7 +137,7 @@ const HyperAppsForVoyager = () => {
   ]);
 };
 
-const HyperYabai = () => {
+const HyperYabaiForVoyager = () => {
   const yabai = "/opt/homebrew/bin/yabai";
   return rule("Hyper Yabai", isVoyager).manipulators([
     withModifier(["right_control", "right_option"])([
@@ -234,7 +236,7 @@ writeToProfile("Default", [
   HyperSymbols(),
   HyperApps(),
   HyperAppsForVoyager(),
-  HyperYabai(),
+  HyperYabaiForVoyager(),
   HyperAppDash(),
   HyperFn(),
   HyperMisc(),
