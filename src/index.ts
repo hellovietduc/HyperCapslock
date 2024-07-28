@@ -153,8 +153,8 @@ const HyperYabaiForVoyager = () => {
       // map("right_arrow").to$(`${yabai} -m space --focus next`),
 
       // Focus desktop
-      map("c").to$(`${yabai} -m display --focus prev`),
-      map("n").to$(`${yabai} -m display --focus next`),
+      map("u").to$(`${yabai} -m display --focus prev`),
+      map("i").to$(`${yabai} -m display --focus next`),
 
       // Maximize a window
       map("return_or_enter").to$(`${yabai} -m window --toggle zoom-fullscreen`),
@@ -166,7 +166,7 @@ const HyperYabaiForVoyager = () => {
       map("b").to$(`${yabai} -m space --balance`),
 
       // Toggle split and rebalance
-      map("y").to$(`${yabai} -m window --toggle split && ${yabai} -m space --balance`),
+      map("n").to$(`${yabai} -m window --toggle split && ${yabai} -m space --balance`),
 
       // Restart yabai
       map("6").to$(`${yabai} --restart-service`),
