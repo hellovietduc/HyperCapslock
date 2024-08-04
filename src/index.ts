@@ -137,9 +137,16 @@ const HyperAppsForVoyager = () => {
   ]);
 };
 
+const HyperYabai = () => {
+  const yabai = "/opt/homebrew/bin/yabai";
+  return rule("Hyper Yabai", unlessVoyager).manipulators([
+    map("return_or_enter", ["command", "shift"]).to$(`${yabai} -m window --toggle zoom-fullscreen`),
+  ]);
+};
+
 const HyperYabaiForVoyager = () => {
   const yabai = "/opt/homebrew/bin/yabai";
-  return rule("Hyper Yabai", isVoyager).manipulators([
+  return rule("Hyper Yabai: Voyager", isVoyager).manipulators([
     withModifier(["right_control", "right_option"])([
       // Focus window
       map("h").to$(`${yabai} -m window --focus west`),
@@ -236,6 +243,7 @@ writeToProfile("Default", [
   HyperSymbols(),
   HyperApps(),
   HyperAppsForVoyager(),
+  HyperYabai(),
   HyperYabaiForVoyager(),
   HyperAppDash(),
   HyperFn(),
