@@ -122,7 +122,7 @@ const HyperAppsForVoyager = () => {
     withModifier(HYPER_KEY)([
       map("q").toApp("Spotify"),
       map("w").toApp("Finder"),
-      map("e").toApp("iTerm"),
+      map("e").toApp("WezTerm"),
       map("r").toApp("Linear"),
       map("t").toApp("Front"),
 
@@ -137,63 +137,68 @@ const HyperAppsForVoyager = () => {
   ]);
 };
 
-const HyperYabai = () => {
-  const yabai = "/opt/homebrew/bin/yabai";
-  return rule("Hyper Yabai", unlessVoyager).manipulators([
-    map("return_or_enter", ["command", "shift"]).to$(`${yabai} -m window --toggle zoom-fullscreen`),
+const HyperAerospace = () => {
+  const aerospace = "/opt/homebrew/bin/aerospace";
+  return rule("Hyper Aerospace", unlessVoyager).manipulators([
+    map("return_or_enter", ["command", "control"]).to$(`${aerospace} fullscreen`),
   ]);
 };
 
-const HyperYabaiForVoyager = () => {
-  const yabai = "/opt/homebrew/bin/yabai";
-  return rule("Hyper Yabai: Voyager", isVoyager).manipulators([
+const HyperAerospaceForVoyager = () => {
+  const aerospace = "/opt/homebrew/bin/aerospace";
+  return rule("Hyper Aerospace: Voyager", isVoyager).manipulators([
     withModifier(["right_control", "right_option"])([
       // Focus window
-      map("h").to$(`${yabai} -m window --focus west`),
-      map("j").to$(`${yabai} -m window --focus south`),
-      map("k").to$(`${yabai} -m window --focus north`),
-      map("l").to$(`${yabai} -m window --focus east`),
+      map("h").to$(`${aerospace} focus --boundaries-action stop left`),
+      map("j").to$(`${aerospace} focus --boundaries-action stop down`),
+      map("k").to$(`${aerospace} focus --boundaries-action stop up`),
+      map("l").to$(`${aerospace} focus --boundaries-action stop right`),
 
-      // Focus space
-      // Handled by Mission Control
-      // map("left_arrow").to$(`${yabai} -m space --focus prev`),
-      // map("right_arrow").to$(`${yabai} -m space --focus next`),
-
-      // Focus desktop
-      map("u").to$(`${yabai} -m display --focus prev`),
-      map("i").to$(`${yabai} -m display --focus next`),
+      // Focus workspace
+      map("left_arrow").to$(`${aerospace} workspace prev`),
+      map("right_arrow").to$(`${aerospace} workspace next`),
 
       // Maximize a window
-      map("return_or_enter").to$(`${yabai} -m window --toggle zoom-fullscreen`),
+      map("return_or_enter").to$(`${aerospace} fullscreen`),
 
-      // Toggle float
-      map("delete_or_backspace").to$(`${yabai} -m window --toggle float --grid 1:3:1:0:1:1`),
+      // Toggle layout mode
+      map("delete_or_backspace").to$(`${aerospace} layout accordion tiles`),
 
-      // Balance out tree of windows (resize to occupy same area)
-      map("b").to$(`${yabai} -m space --balance`),
-
-      // Toggle split and rebalance
-      map("n").to$(`${yabai} -m window --toggle split && ${yabai} -m space --balance`),
-
-      // Restart yabai
-      map("6").to$(`${yabai} --restart-service`),
+      // Rotate
+      map("r").to$(`${aerospace} layout horizontal vertical`),
     ]),
 
     withModifier(["right_control", "right_option", "right_shift"])([
-      // Move window within space
-      map("e").to$(`${yabai} -m window --swap north`),
-      map("d").to$(`${yabai} -m window --swap south`),
-      map("s").to$(`${yabai} -m window --swap west`),
-      map("f").to$(`${yabai} -m window --swap east`),
+      // Move window within workspace
+      map("e").to$(`${aerospace} move up`),
+      map("d").to$(`${aerospace} move down`),
+      map("s").to$(`${aerospace} move left`),
+      map("f").to$(`${aerospace} move right`),
 
-      // Move window to other spaces
-      map("left_arrow").to$(`${yabai} -m window --space prev --focus`),
-      map("right_arrow").to$(`${yabai} -m window --space next --focus`),
+      // Move window to other workspaces
+      map("left_arrow").to$(`${aerospace} move-node-to-workspace prev | ${aerospace} workspace prev`),
+      map("right_arrow").to$(`${aerospace} move-node-to-workspace next | ${aerospace} workspace next`),
 
       // Move window to other desktops
-      map("w").to$(`${yabai} -m window --display prev --focus`),
-      map("r").to$(`${yabai} -m window --display next --focus`),
+      map("a").to$(`${aerospace} move-node-to-monitor prev`),
+      map("g").to$(`${aerospace} move-node-to-monitor next`),
+
+      // Resize window
+      map("b").to$(`${aerospace} balance-sizes`),
+      map("n").to$(`${aerospace} resize smart -50`),
+      map("m").to$(`${aerospace} resize smart +50`),
+
+      map("6").to$(`${aerospace} flatten-workspace-tree`),
     ]),
+
+    withModifier(HYPER_KEY)([
+      // Move to specific workspace
+      map('1').to$(`${aerospace} workspace 1`),
+      map('2').to$(`${aerospace} workspace 2`),
+      map('3').to$(`${aerospace} workspace 3`),
+      map('4').to$(`${aerospace} workspace 4`),
+      map('5').to$(`${aerospace} workspace 5`),
+    ])
   ]);
 };
 
@@ -243,8 +248,8 @@ writeToProfile("Default", [
   HyperSymbols(),
   HyperApps(),
   HyperAppsForVoyager(),
-  HyperYabai(),
-  HyperYabaiForVoyager(),
+  HyperAerospace(),
+  HyperAerospaceForVoyager(),
   HyperAppDash(),
   HyperFn(),
   HyperMisc(),
