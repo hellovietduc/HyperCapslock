@@ -170,10 +170,16 @@ const HyperAerospaceForVoyager = () => {
 
     withModifier(["right_control", "right_option", "right_shift"])([
       // Move window within workspace
-      map("e").to$(`${aerospace} move up`),
-      map("d").to$(`${aerospace} move down`),
-      map("s").to$(`${aerospace} move left`),
-      map("f").to$(`${aerospace} move right`),
+      map("y").to$(`${aerospace} move left`),
+      map("u").to$(`${aerospace} move down`),
+      map("i").to$(`${aerospace} move up`),
+      map("o").to$(`${aerospace} move right`),
+
+      // Join window within workspace
+      map("e").to$(`${aerospace} join-with up`),
+      map("d").to$(`${aerospace} join-with down`),
+      map("s").to$(`${aerospace} join-with left`),
+      map("f").to$(`${aerospace} join-with right`),
 
       // Move window to other workspaces
       map("left_arrow").to$(`${aerospace} move-node-to-workspace prev | ${aerospace} workspace prev`),
