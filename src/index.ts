@@ -132,7 +132,7 @@ const HyperAppsForVoyager = () => {
 
       map("x").toApp("TypingMind"),
       map("c").toApp("Arc"),
-      map("v").toApp("Visual Studio Code"),
+      map("v").toApp("Neovide"),
     ]),
   ]);
 };
@@ -199,12 +199,12 @@ const HyperAerospaceForVoyager = () => {
 
     withModifier(HYPER_KEY)([
       // Move to specific workspace
-      map('1').to$(`${aerospace} workspace 1`),
-      map('2').to$(`${aerospace} workspace 2`),
-      map('3').to$(`${aerospace} workspace 3`),
-      map('4').to$(`${aerospace} workspace 4`),
-      map('5').to$(`${aerospace} workspace 5`),
-    ])
+      map("1").to$(`${aerospace} workspace 1`),
+      map("2").to$(`${aerospace} workspace 2`),
+      map("3").to$(`${aerospace} workspace 3`),
+      map("4").to$(`${aerospace} workspace 4`),
+      map("5").to$(`${aerospace} workspace 5`),
+    ]),
   ]);
 };
 
