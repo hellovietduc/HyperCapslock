@@ -101,7 +101,7 @@ const HyperApps = () => {
     withModifier(["left_command", ...HYPER_KEY])([
       map("q").toApp("Spotify"),
       map("w").toApp("Finder"),
-      map("e").toApp("iTerm"),
+      map("e").toApp("WezTerm"),
       map("r").toApp("Linear"),
       map("t").toApp("Front"),
 
@@ -112,7 +112,7 @@ const HyperApps = () => {
 
       map("x").toApp("TypingMind"),
       map("c").toApp("Arc"),
-      map("v").toApp("Visual Studio Code"),
+      map("v").toApp("Neovide"),
     ]),
   ]);
 };
@@ -148,62 +148,41 @@ const HyperAerospaceForVoyager = () => {
   const aerospace = "/opt/homebrew/bin/aerospace";
   return rule("Hyper Aerospace: Voyager", isVoyager).manipulators([
     withModifier(["right_control", "right_option"])([
-      // Focus window
-      map("h").to$(`${aerospace} focus --boundaries-action stop left`),
-      map("j").to$(`${aerospace} focus --boundaries-action stop down`),
-      map("k").to$(`${aerospace} focus --boundaries-action stop up`),
-      map("l").to$(`${aerospace} focus --boundaries-action stop right`),
-
       // Focus workspace
       map("left_arrow").to$(`${aerospace} workspace prev`),
       map("right_arrow").to$(`${aerospace} workspace next`),
-
-      // Maximize a window
-      map("return_or_enter").to$(`${aerospace} fullscreen`),
-
-      // Toggle layout mode
-      map("delete_or_backspace").to$(`${aerospace} layout accordion tiles`),
-
-      // Rotate
-      map("r").to$(`${aerospace} layout horizontal vertical`),
-    ]),
-
-    withModifier(["right_control", "right_option", "right_shift"])([
-      // Move window within workspace
-      map("y").to$(`${aerospace} move left`),
-      map("u").to$(`${aerospace} move down`),
-      map("i").to$(`${aerospace} move up`),
-      map("o").to$(`${aerospace} move right`),
-
-      // Join window within workspace
-      map("e").to$(`${aerospace} join-with up`),
-      map("d").to$(`${aerospace} join-with down`),
-      map("s").to$(`${aerospace} join-with left`),
-      map("f").to$(`${aerospace} join-with right`),
-
-      // Move window to other workspaces
-      map("left_arrow").to$(`${aerospace} move-node-to-workspace prev | ${aerospace} workspace prev`),
-      map("right_arrow").to$(`${aerospace} move-node-to-workspace next | ${aerospace} workspace next`),
-
-      // Move window to other desktops
-      map("a").to$(`${aerospace} move-node-to-monitor prev`),
-      map("g").to$(`${aerospace} move-node-to-monitor next`),
-
-      // Resize window
-      map("b").to$(`${aerospace} balance-sizes`),
-      map("n").to$(`${aerospace} resize smart -50`),
-      map("m").to$(`${aerospace} resize smart +50`),
-
-      map("6").to$(`${aerospace} flatten-workspace-tree`),
-    ]),
-
-    withModifier(HYPER_KEY)([
-      // Move to specific workspace
       map("1").to$(`${aerospace} workspace 1`),
       map("2").to$(`${aerospace} workspace 2`),
       map("3").to$(`${aerospace} workspace 3`),
       map("4").to$(`${aerospace} workspace 4`),
       map("5").to$(`${aerospace} workspace 5`),
+      map("6").to$(`${aerospace} workspace 6`),
+      map("7").to$(`${aerospace} workspace 7`),
+      map("8").to$(`${aerospace} workspace 8`),
+      map("9").to$(`${aerospace} workspace 9`),
+
+      // Move window within workspace
+      map("h").to$(`${aerospace} layout tiling | ${aerospace} move left`),
+      map("l").to$(`${aerospace} layout tiling | ${aerospace} move right`),
+      map("j").to$(`${aerospace} layout tiling | ${aerospace} move down`),
+      map("k").to$(`${aerospace} layout tiling | ${aerospace} move up`),
+
+      // Maximize a window
+      map("return_or_enter").to$(`${aerospace} layout tiling | ${aerospace} fullscreen`),
+    ]),
+
+    withModifier(["right_control", "right_option", "right_shift"])([
+      // Move window to other workspaces
+      map("left_arrow").to$(`${aerospace} move-node-to-workspace prev | ${aerospace} workspace prev`),
+      map("right_arrow").to$(`${aerospace} move-node-to-workspace next | ${aerospace} workspace next`),
+
+      // Resize window
+      map("n").to$(`${aerospace} resize smart -50`),
+      map("m").to$(`${aerospace} resize smart +50`),
+
+      // Reset
+      map("r").to$(`${aerospace} flatten-workspace-tree | ${aerospace} balance-sizes`),
+      map("f").to$(`${aerospace} layout floating`),
     ]),
   ]);
 };
