@@ -38,10 +38,10 @@ const HyperNavigation = () => {
       map("k").to("up_arrow"),
       map("l").to("right_arrow"),
 
-      map("u").to("left_arrow", "left_command"),
-      map("i").to("left_arrow", "left_option"),
-      map("o").to("right_arrow", "left_option"),
-      map("p").to("right_arrow", "left_command"),
+      map("y").to("left_arrow", "left_command"),
+      map("u").to("left_arrow", "left_option"),
+      map("i").to("right_arrow", "left_option"),
+      map("o").to("right_arrow", "left_command"),
     ]),
   ]);
 };
@@ -54,10 +54,10 @@ const HyperSelection = () => {
       map("k").to("up_arrow", "left_shift"),
       map("l").to("right_arrow", "left_shift"),
 
-      map("u").to("left_arrow", ["left_command", "left_shift"]),
-      map("i").to("left_arrow", ["left_option", "left_shift"]),
-      map("o").to("right_arrow", ["left_option", "left_shift"]),
-      map("p").to("right_arrow", ["left_command", "left_shift"]),
+      map("y").to("left_arrow", ["left_command", "left_shift"]),
+      map("u").to("left_arrow", ["left_option", "left_shift"]),
+      map("i").to("right_arrow", ["left_option", "left_shift"]),
+      map("o").to("right_arrow", ["left_command", "left_shift"]),
     ]),
   ]);
 };
@@ -137,52 +137,19 @@ const HyperAppsForVoyager = () => {
   ]);
 };
 
-const HyperAerospace = () => {
-  const aerospace = "/opt/homebrew/bin/aerospace";
-  return rule("Hyper Aerospace", unlessVoyager).manipulators([
-    map("return_or_enter", ["command", "control"]).to$(`${aerospace} fullscreen`),
-  ]);
-};
+const HyperRectangleForVoyager = () => {
+  return rule("Hyper Rectangle: Voyager", isVoyager).manipulators([
+    withModifier(HYPER_KEY)([
+      /* left half   */ map("h").to("left_arrow", ["left_control", "left_option"]),
+      /* center half */ map("j").to("down_arrow", ["left_control", "left_option"]),
+      /* max height  */ map("k").to("up_arrow", ["left_control", "left_option"]),
+      /* right half  */ map("l").to("right_arrow", ["left_control", "left_option"]),
 
-const HyperAerospaceForVoyager = () => {
-  const aerospace = "/opt/homebrew/bin/aerospace";
-  return rule("Hyper Aerospace: Voyager", isVoyager).manipulators([
-    withModifier(["right_control", "right_option"])([
-      // Focus workspace
-      map("left_arrow").to$(`${aerospace} workspace prev`),
-      map("right_arrow").to$(`${aerospace} workspace next`),
-      map("1").to$(`${aerospace} workspace 1`),
-      map("2").to$(`${aerospace} workspace 2`),
-      map("3").to$(`${aerospace} workspace 3`),
-      map("4").to$(`${aerospace} workspace 4`),
-      map("5").to$(`${aerospace} workspace 5`),
-      map("6").to$(`${aerospace} workspace 6`),
-      map("7").to$(`${aerospace} workspace 7`),
-      map("8").to$(`${aerospace} workspace 8`),
-      map("9").to$(`${aerospace} workspace 9`),
+      /* maximize    */ map("return_or_enter").to("return_or_enter", ["left_control", "left_option"]),
+      /* restore     */ map("delete_or_backspace").to("delete_or_backspace", ["left_control", "left_option"]),
 
-      // Move window within workspace
-      map("h").to$(`${aerospace} layout tiling | ${aerospace} move left`),
-      map("l").to$(`${aerospace} layout tiling | ${aerospace} move right`),
-      map("j").to$(`${aerospace} layout tiling | ${aerospace} move down`),
-      map("k").to$(`${aerospace} layout tiling | ${aerospace} move up`),
-
-      // Maximize a window
-      map("return_or_enter").to$(`${aerospace} layout tiling | ${aerospace} fullscreen`),
-    ]),
-
-    withModifier(["right_control", "right_option", "right_shift"])([
-      // Move window to other workspaces
-      map("left_arrow").to$(`${aerospace} move-node-to-workspace prev | ${aerospace} workspace prev`),
-      map("right_arrow").to$(`${aerospace} move-node-to-workspace next | ${aerospace} workspace next`),
-
-      // Resize window
-      map("n").to$(`${aerospace} resize smart -50`),
-      map("m").to$(`${aerospace} resize smart +50`),
-
-      // Reset
-      map("r").to$(`${aerospace} flatten-workspace-tree | ${aerospace} balance-sizes`),
-      map("f").to$(`${aerospace} layout floating`),
+      /* left space  */ map("y").to("left_arrow", ["left_control"]),
+      /* right space */ map("o").to("right_arrow", ["left_control"]),
     ]),
   ]);
 };
@@ -233,8 +200,7 @@ writeToProfile("Default", [
   HyperSymbols(),
   HyperApps(),
   HyperAppsForVoyager(),
-  HyperAerospace(),
-  HyperAerospaceForVoyager(),
+  HyperRectangleForVoyager(),
   HyperAppDash(),
   HyperFn(),
   HyperMisc(),
