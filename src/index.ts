@@ -128,6 +128,7 @@ const HyperAppsForVoyager = () => {
 
       map("a").toApp("Microsoft Teams (work or school)"),
       map("s").toApp("Logseq"),
+      map("d").to("spacebar", ["left_option"]), // Dash
       map("f").toApp("Figma"),
 
       map("x").toApp("TypingMind"),
