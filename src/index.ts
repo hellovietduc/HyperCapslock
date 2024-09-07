@@ -106,7 +106,7 @@ const HyperApps = () => {
       map("t").toApp("Front"),
 
       map("a").toApp("Microsoft Teams (work or school)"),
-      map("s").toApp("Logseq"),
+      map("s").toApp("Obsidian"),
       map("d").toApp("Dash"),
       map("f").toApp("Figma"),
 
@@ -127,7 +127,7 @@ const HyperAppsForVoyager = () => {
       map("t").toApp("Front"),
 
       map("a").toApp("Microsoft Teams (work or school)"),
-      map("s").toApp("Logseq"),
+      map("s").toApp("Obsidian"),
       map("d").to("spacebar", ["left_option"]), // Dash
       map("f").toApp("Figma"),
 
