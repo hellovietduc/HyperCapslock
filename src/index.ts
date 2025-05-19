@@ -110,7 +110,7 @@ const HyperApps = () => {
       map("d").toApp("Dash"),
       map("f").toApp("Figma"),
 
-      map("x").toApp("TypingMind"),
+      map("x").toApp("Cursor"),
       map("c").toApp("Arc"),
       map("v").toApp("Neovide"),
     ]),
@@ -131,7 +131,7 @@ const HyperAppsForVoyager = () => {
       map("d").to("spacebar", ["left_option"]), // Dash
       map("f").toApp("Figma"),
 
-      map("x").toApp("TypingMind"),
+      map("x").toApp("Cursor"),
       map("c").toApp("Arc"),
       map("v").toApp("Neovide"),
     ]),
