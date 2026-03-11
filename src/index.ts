@@ -112,7 +112,7 @@ const HyperApps = () => {
 
       map("x").toApp("Cursor"),
       map("c").toApp("Arc"),
-      map("v").toApp("Neovide"),
+      map("v").toApp("cmux"),
     ]),
   ]);
 };
@@ -133,7 +133,7 @@ const HyperAppsForVoyager = () => {
 
       map("x").toApp("Cursor"),
       map("c").toApp("Arc"),
-      map("v").toApp("Neovide"),
+      map("v").toApp("cmux"),
     ]),
   ]);
 };
