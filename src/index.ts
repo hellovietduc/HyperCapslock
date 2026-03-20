@@ -126,7 +126,7 @@ const HyperAppsForVoyager = () => {
 
       map("a").toApp("Claude"),
       map("s").toApp("Obsidian"),
-      map("d").to("spacebar", ["left_option"]),
+      map("d").toApp("Finder"),
       map("f").toApp("Figma"),
 
       map("x").toApp("Cursor"),
