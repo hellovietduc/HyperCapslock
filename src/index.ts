@@ -99,15 +99,14 @@ const HyperSymbols = () => {
 const HyperApps = () => {
   return rule("Hyper Apps", unlessVoyager).manipulators([
     withModifier(["left_command", ...HYPER_KEY])([
-      map("q").toApp("Spotify"),
-      map("w").toApp("Finder"),
+      map("w").toApp("Front"),
       map("e").toApp("WezTerm"),
       map("r").toApp("Linear"),
-      map("t").toApp("Front"),
+      map("t").toApp("Microsoft Teams"),
 
-      map("a").toApp("Microsoft Teams"),
+      map("a").toApp("Claude"),
       map("s").toApp("Obsidian"),
-      map("d").toApp("Dash"),
+      map("d").toApp("Finder"),
       map("f").toApp("Figma"),
 
       map("x").toApp("Cursor"),
@@ -120,15 +119,14 @@ const HyperApps = () => {
 const HyperAppsForVoyager = () => {
   return rule("Hyper Apps: Voyager", isVoyager).manipulators([
     withModifier(HYPER_KEY)([
-      map("q").toApp("Spotify"),
-      map("w").toApp("Finder"),
+      map("w").toApp("Front"),
       map("e").toApp("WezTerm"),
       map("r").toApp("Linear"),
-      map("t").toApp("Front"),
+      map("t").toApp("Microsoft Teams"),
 
-      map("a").toApp("Microsoft Teams"),
+      map("a").toApp("Claude"),
       map("s").toApp("Obsidian"),
-      map("d").to("spacebar", ["left_option"]), // Dash
+      map("d").to("spacebar", ["left_option"]),
       map("f").toApp("Figma"),
 
       map("x").toApp("Cursor"),
