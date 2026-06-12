@@ -104,13 +104,13 @@ const HyperApps = () => {
       map("t").toApp("Microsoft Teams"),
 
       map("a").toApp("Claude"),
-      map("s").toApp("Obsidian"),
+      map("s").toApp("Slack"),
       map("d").toApp("Finder"),
       map("f").toApp("Figma"),
 
       map("e").toApp("Zed"),
       map("c").toApp("Arc"),
-      map("v").toApp("cmux"),
+      map("v").toApp("Ghostty"),
     ]),
   ]);
 };
@@ -123,13 +123,13 @@ const HyperAppsForVoyager = () => {
       map("t").toApp("Microsoft Teams"),
 
       map("a").toApp("Claude"),
-      map("s").toApp("Obsidian"),
+      map("s").toApp("Slack"),
       map("d").toApp("Finder"),
       map("f").toApp("Figma"),
 
       map("e").toApp("Zed"),
       map("c").toApp("Arc"),
-      map("v").toApp("cmux"),
+      map("v").toApp("Ghostty"),
     ]),
   ]);
 };
