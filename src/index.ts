@@ -1,13 +1,10 @@
-import {
-  FromKeyParam,
-  FromModifierParam,
-  ifApp,
-  ifDevice,
-  map,
-  rule,
-  withModifier,
-  writeToProfile,
-} from "karabiner.ts";
+import { createRequire } from "node:module";
+import type { FromKeyParam, FromModifierParam } from "karabiner.ts";
+
+// karabiner.ts's ESM build calls require() for node builtins, which breaks under
+// native ESM. Load its working CJS build via createRequire instead.
+const { ifApp, ifDevice, map, rule, withModifier, writeToProfile } =
+  createRequire(import.meta.url)("karabiner.ts") as typeof import("karabiner.ts");
 
 const isVoyager = ifDevice({ vendor_id: 12951, product_id: 6519 });
 const unlessVoyager = isVoyager.unless();
@@ -101,7 +98,7 @@ const HyperApps = () => {
     withModifier(["left_command", ...HYPER_KEY])([
       map("w").toApp("WezTerm"),
       map("r").toApp("Linear"),
-      map("t").toApp("Microsoft Teams"),
+      map("t").toApp("Front"),
 
       map("a").toApp("Claude"),
       map("s").toApp("Slack"),
@@ -120,7 +117,7 @@ const HyperAppsForVoyager = () => {
     withModifier(HYPER_KEY)([
       map("w").toApp("WezTerm"),
       map("r").toApp("Linear"),
-      map("t").toApp("Microsoft Teams"),
+      map("t").toApp("Front"),
 
       map("a").toApp("Claude"),
       map("s").toApp("Slack"),
