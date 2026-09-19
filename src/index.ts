@@ -3,8 +3,9 @@ import type { FromKeyParam, FromModifierParam } from "karabiner.ts";
 
 // karabiner.ts's ESM build calls require() for node builtins, which breaks under
 // native ESM. Load its working CJS build via createRequire instead.
-const { ifApp, ifDevice, map, rule, withModifier, writeToProfile } =
-  createRequire(import.meta.url)("karabiner.ts") as typeof import("karabiner.ts");
+const { ifApp, ifDevice, map, rule, withModifier, writeToProfile } = createRequire(import.meta.url)(
+  "karabiner.ts",
+) as typeof import("karabiner.ts");
 
 const isVoyager = ifDevice({ vendor_id: 12951, product_id: 6519 });
 const unlessVoyager = isVoyager.unless();
@@ -96,18 +97,17 @@ const HyperSymbols = () => {
 const HyperApps = () => {
   return rule("Hyper Apps", unlessVoyager).manipulators([
     withModifier(["left_command", ...HYPER_KEY])([
-      map("w").toApp("WezTerm"),
+      map("e").toApp("Zed"),
       map("r").toApp("Linear"),
       map("t").toApp("Front"),
 
-      map("a").toApp("Claude"),
+      map("a").toApp("Grok Bot"),
       map("s").toApp("Slack"),
-      map("d").toApp("Finder"),
-      map("f").toApp("Figma"),
+      map("d").toApp("Obsidian"),
+      map("f").toApp("Finder"),
 
-      map("e").toApp("Zed"),
       map("c").toApp("Arc"),
-      map("v").toApp("Ghostty"),
+      map("g").toApp("Ghostty"),
     ]),
   ]);
 };
@@ -115,18 +115,17 @@ const HyperApps = () => {
 const HyperAppsForVoyager = () => {
   return rule("Hyper Apps: Voyager", isVoyager).manipulators([
     withModifier(HYPER_KEY)([
-      map("w").toApp("WezTerm"),
+      map("e").toApp("Zed"),
       map("r").toApp("Linear"),
       map("t").toApp("Front"),
 
-      map("a").toApp("Claude"),
+      map("a").toApp("Grok Bot"),
       map("s").toApp("Slack"),
-      map("d").toApp("Finder"),
-      map("f").toApp("Figma"),
+      map("d").toApp("Obsidian"),
+      map("f").toApp("Finder"),
 
-      map("e").toApp("Zed"),
       map("c").toApp("Arc"),
-      map("v").toApp("Ghostty"),
+      map("g").toApp("Ghostty"),
     ]),
   ]);
 };
