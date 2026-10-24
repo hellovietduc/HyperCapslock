@@ -106,8 +106,8 @@ const HyperApps = () => {
       map("d").toApp("Obsidian"),
       map("f").toApp("Finder"),
 
-      map("c").toApp("Arc"),
-      map("g").toApp("Ghostty"),
+      map("c").toApp("Firefox"),
+      map("g").toApp("Rex Beta"),
     ]),
   ]);
 };
@@ -124,8 +124,8 @@ const HyperAppsForVoyager = () => {
       map("d").toApp("Obsidian"),
       map("f").toApp("Finder"),
 
-      map("c").toApp("Arc"),
-      map("g").toApp("Ghostty"),
+      map("c").toApp("Firefox"),
+      map("g").toApp("Rex Beta"),
     ]),
   ]);
 };
