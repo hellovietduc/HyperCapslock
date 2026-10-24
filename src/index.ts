@@ -97,7 +97,7 @@ const HyperSymbols = () => {
 const HyperApps = () => {
   return rule("Hyper Apps", unlessVoyager).manipulators([
     withModifier(["left_command", ...HYPER_KEY])([
-      map("e").toApp("Zed"),
+      map("e").toApp("Rex Beta"),
       map("r").toApp("Linear"),
       map("t").toApp("Front"),
 
@@ -107,7 +107,6 @@ const HyperApps = () => {
       map("f").toApp("Finder"),
 
       map("c").toApp("Firefox"),
-      map("g").toApp("Rex Beta"),
     ]),
   ]);
 };
@@ -115,7 +114,7 @@ const HyperApps = () => {
 const HyperAppsForVoyager = () => {
   return rule("Hyper Apps: Voyager", isVoyager).manipulators([
     withModifier(HYPER_KEY)([
-      map("e").toApp("Zed"),
+      map("e").toApp("Rex Beta"),
       map("r").toApp("Linear"),
       map("t").toApp("Front"),
 
@@ -125,7 +124,6 @@ const HyperAppsForVoyager = () => {
       map("f").toApp("Finder"),
 
       map("c").toApp("Firefox"),
-      map("g").toApp("Rex Beta"),
     ]),
   ]);
 };
